@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogue Walk || Signup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'styles/home.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/fonts.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/signup.css'%}">
+</head>
+<body>
+    <section class="parent">
+        <div class="leftcont">
+            <a href="/" style="text-decoration: none;">
+            <div class="logo-wrap">
+                <img src="{%static 'images/logo.png'%}" alt="logo">
+                <p class="logohead active">VogueWalk</p>
+            </div>
+            </a>
+            <div class="return">
+                <a href="/store">
+                    <img src="{%static 'images/arr.svg'%}" alt="#">
+                    Back to home
+                </a>
+            </div>
+            <div class="formelement">
+                <div class="formhead">
+                    <p>Signin</p>
+                </div>
+                <div class="formdiv">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Registered Email" name="email">
+                        <input type="password" placeholder="Password" name="password">
+                        <a href="/Signup" class="ctext">Don't have an Account?</a>
+                        <p class="ctext">{{errors}}</p>
+                        <button>Signin</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="rightcontt">
+            <div class="rightimg" style="max-width: 60%;">
+                <img src="{%static 'images/signin.svg'%}" alt="#">
+            </div>
+            <div class="text">
+                <p>In Fashion We Trust.</p>
+                <img src="{%static 'images/heart.svg'%}" alt="#" class="timg1">
+                <img src="{%static 'images/heart.svg'%}" alt="#" class="timg2">
+                <img src="{%static 'images/heart.svg'%}" alt="#" class="timg3">
+            </div>
+        </div>
+    </section>
+</body>
+</html>

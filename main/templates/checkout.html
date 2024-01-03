@@ -1,0 +1,157 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogue Walk || Products</title>
+    <link rel="shortcut icon" href="{%static 'images/favicon.png'%}" type="image/x-icon">   
+    <link rel="stylesheet" href="{%static 'styles/home.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/store.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/fonts.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/checkout.css'%}">
+    
+</head>
+<body>
+    <nav class="nav active">
+        <a href="/" style="text-decoration: none;">
+        <div class="logo-wrap">
+            <img src="{%static 'images/logo.png'%}" alt="logo">
+            <p class="logohead active">VogueWalk</p>
+        </div>
+        </a>
+        <div class="navright">
+            <div class="ham active">
+                <span class="span1"></span>
+                <span class="span2"></span>
+                <span class="span3"></span>
+            </div>
+        </div>
+        <div class="mobilenav">
+            <ul class="mobilenavul">
+                <li class="mobilenavhead">Menu</li>
+                <li><a href="/">Home</a></li>
+                <span></span>
+                <li><a href="/store">Store</a></li>
+                <span></span>
+                <li><a href="/Cart">Vogue Cart</a></li>
+                <span></span>
+                <li><a href="/contact">Contact</a></li>
+                <span></span>
+                {%if not request.user.is_authenticated%}
+                <li><a href="/Signup">Signup/Signin</a></li>
+                <span></span>
+                {%endif%}
+                <li><a href="/logout" class="logouttxt">Logged in as {{request.user}} - logout</a></li>
+                <span></span>
+            </ul>
+        </div>
+    </nav>
+    <section class="parent">
+        <div class="product-header">
+            <p>Checkout</p>
+        </div>
+        <div class="order-wrap">
+            <div class="product">
+                <div class="img-wrap">
+                    <img src="{{MEDIA_URL}}{{pd.image}}" alt="product">
+                </div>
+                <div class="prod-details">
+                    <p class="product-heading">{{pd.title}}</p>
+                    <p class="product-price">₹{{pd.price}}</p>
+                </div>
+            </div>
+            <div class="pricing">
+                <p class="quantity-info">Quantity - x1</p>
+                <p class="total">Order Total - ₹{{pd.price}}</p>
+            </div>
+        </div>
+        <div class="quantity-wrapper">
+            <div class="quantity-header">
+                <p class="size-header">Quantity</p>
+            </div>
+            <div class="quantity">
+                <div class="qadd"><p>+</p></div>
+                <div class="quantity-value"><p class="quantity-val">1</p></div>
+                <div class="qsub"><p>-</p></div>
+            </div>
+        </div>
+        <div class="size-wrap">
+            <div class="size-header">
+                <p>Size:</p>
+            </div>
+            <div class="sizes">
+                {%for size in sizes%}
+                <div class="size">
+                    <p>{{size}}</p>
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="shipping-wrap">
+            <div class="shipping-header">
+                <p>Shipping Details</p>
+            </div>
+            <form action="" method="POST">
+                {%csrf_token%}
+                <input type="hidden" name="size" class="sizeinput">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Door No, Street/Lane,  Address">
+                <div class="input-div">
+                <input type="text" placeholder="City">
+                <input type="text" placeholder="Postal Code">
+                </div>
+               <input type="text" placeholder="Mobile Number">
+               <div class="cta">
+                <a href="/store">
+                <button class="ctabutton green">
+                    Proceed to payment
+                    <img src="{%static 'images/cart.svg'%}" alt="" class="icon">
+                </button>
+                </a>
+            </div>
+            </form>
+        </div>
+
+
+    </section>
+    <script src="{%static 'js/nav.js'%}"></script>
+    <script>
+        let sizebtn = document.querySelectorAll('.size')
+        let sizeint = document.querySelector('.sizeinput')
+        let qadd = document.querySelector('.qadd')
+        let qsub = document.querySelector('.qsub')
+        let quantity_value = document.querySelector('.quantity-val')
+        let price = document.querySelector('.total')
+        let quantity_info = document.querySelector('.quantity-info')
+        let p = "{{pd.price}}"
+        sizebtn.forEach(element => {
+            element.addEventListener('click', (e)=>{
+                sizebtn.forEach(element =>{
+                    element.classList.remove('active')
+                })
+                e.target.classList.toggle('active')
+                sizeint.value = e.target.children[0].innerHTML
+            }
+        )});
+
+        qadd.addEventListener('click', ()=>{
+            current_value = parseInt(quantity_value.innerText)
+            value=quantity_value.innerText = current_value+1
+            quantity_info.innerText = "Quantity - x"+value
+
+            priceval = parseInt(price.innerText)
+            window.currentprice = (current_value+1)*p
+            price.innerText = "Order Total - ₹"+(current_value+1)*p
+        })
+        qsub.addEventListener('click', ()=>{
+            current_value = parseInt(quantity_value.innerText)
+            if (current_value>0)
+                quantity_value.innerText = "1"
+                quantity_info.innerText = "Quantity - x1"
+                price.innerText = "Order Total - ₹"+p
+        })
+    </script>
+</body>
+</html>
+<!-- 

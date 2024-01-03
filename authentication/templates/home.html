@@ -1,0 +1,304 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogue Walk</title>
+    <link rel="shortcut icon" href="{%static 'images/favicon.png'%}" type="image/x-icon">
+    <link rel="stylesheet" href="{%static 'styles/home.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/fonts.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/swiper-bundle.css'%}"/>
+
+</head>
+<body>
+    <section class="parent">
+        <nav class="nav active">   
+            <a href="/" style="text-decoration: none;">
+            <div class="logo-wrap">
+                <img src="{%static 'images/logo.png'%}" alt="logo">
+                <p class="logohead active">VogueWalk</p>
+            </div>
+            </a>
+            <div class="navright">
+                <div class="search active">
+                    <a href="/store">Shop</a>
+                    <img src="{%static 'images/shop.svg'%}" alt="search" style="filter: invert(1);">
+                </div>
+                <div class="ham active">
+                    <span class="span1"></span>
+                    <span class="span2"></span>
+                    <span class="span3"></span>
+                </div>
+            </div>
+            <div class="mobilenav">
+                <ul class="mobilenavul">
+                    <li class="mobilenavhead">Menu</li>
+                    <li><a href="/">Home</a></li>
+                    <span></span>
+                    <li><a href="/store">Store</a></li>
+                    <span></span>
+                    <li><a href="/orders">My Orders</a></li>
+                    <span></span>
+                    <li><a href="/Signup">Signup/Signin</a></li>
+                    <span></span>
+                    <!-- <li><a href="/contact">Contact</a></li>
+                    <span></span> -->
+                    <li><a href="/logout" class="logouttxt">Logged in as {{request.user}} - logout</a></li>
+                    <span></span>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Main Section -->
+        <section class="jumbotron">
+            <div class="vwfloat">
+                <img src="{%static 'images/vw.svg'%}" alt="vw">
+            </div>
+            <div class="leftcont">
+                <div class="heading">
+                    <p>Vogue Walk</p>
+                </div>
+                <div class="headcont">
+                    <p>Discover the art of walking in Fashion your ultimate footwear destination.</p>
+                </div>
+                <div class="cta">
+                    <a href="/store">
+                    <button class="ctabutton">
+                        Explore Collection
+                        <img src="{%static 'images/shop.svg'%}" alt="" class="icon">
+                    </button>
+                    </a>
+                </div>
+            </div>
+            <div class="rightcont">
+                <div class="imgwrap">
+                    <img src="{%static 'images/bgdot.svg'%}" alt="#" class="bgdot">
+                    <img src="{%static 'images/bgdot.svg'%}" alt="#" class="bgdot2">
+
+                    <img src="{%static 'images/jb2.png'%}" alt="picture" class="jbimg2">
+                    <img src="{%static 'images/jb1.png'%}" alt="picture" class="jbimg">
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about">
+            <div class="abtleft">
+                <div class="abtimg">
+                <img src="{%static 'images/abtimg.png'%}" alt="#">
+                </div>
+            </div>
+            <div class="abtright">
+                <div class="abtwrap">
+                    <p class="about-heading">About</p>
+                    <p class="about-heading2">Affordable Luxury, Uncompromised Quality.</p>
+                    <p class="about-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac tristique ligula. Fusce euismod tristique justo, eu varius urna facilisis nec. Curabitur vulputate justo ac eros tincidunt,
+                         nec feugiat quam fermentum. Nulla facilisi. Maecenas ullamcorper.</p>
+                </div>
+                <div class="abtbtn">
+                    <div class="cta green">
+                        <a href="/store">
+                        <button href="/">
+                            Explore Collection
+                            <img src="{%static 'images/shop.svg'%}" alt="">
+                        </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Arrivals Section -->
+        <section class="arrivals">
+            <div class="arr-heading">
+                <p>New Arrivals!</p>
+            </div>
+            <div class="offersection">
+                <div class="offer">
+                    <p>FLAT 45% OFF</p>
+                </div>
+                <p>Sale end in 8hrs 47mins GMT</p>
+            </div>
+            <div class="acard-wrap">
+                <div class="acard">
+                    <div class="acardimg">
+                        <img src="{%static 'images/na1.png'%}" alt="#">
+                    </div>
+                    <div class="ainfo">
+                        <p class="apname">Vogue - Men's Relaxed Fit: Braver</p>
+                        <a href="#">
+                            View Products
+                            <img src="{%static 'images/arrow.svg'%}" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="acard">
+                    <div class="acardimg">
+                        <img src="{%static 'images/na2.png'%}" alt="#">
+                    </div>
+                    <div class="ainfo">
+                        <p class="apname">Vogue - Men's Relaxed Fit: Braver</p>
+                        <a href="#">
+                            View Products
+                            <img src="{%static 'images/arrow.svg'%}" alt="">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="acard">
+                    <div class="acardimg">
+                        <img src="{%static 'images/na3.png'%}" alt="#">
+                    </div>
+                    <div class="ainfo">
+                        <p class="apname">Vogue - Men's Relaxed Fit: Braver</p>
+                        <a href="#">
+                            View Products
+                            <img src="{%static 'images/arrow.svg'%}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="cta">
+                    <button>
+                        Shop Now
+                        <img src="{%static 'images/shop.svg'%}" alt="">
+                    </button>
+                </div> -->
+            </div>
+           
+        </section>
+
+        <!-- Collections Selection -->
+        <section class="collections">
+            <div class="collections-header">
+                <p>Collections</p>
+            </div>
+            <div class="slider swiper">
+                <div class="slider-wrap swiper-wrapper">
+                    <div class="slidercard swiper-slide s1">
+                        <div class="sliderimg">
+                        <img src="{%static 'images/c1.jpg'%}" alt="">
+                        </div>
+                        <div class="slider-content">
+                            <p class="slider-chead">Vogue-Velocity Pro X</p>
+                            <p class="slider-ccont">Step into the future of footwear with vogue</p>
+                        </div>
+                    </div>
+                    <div class="slidercard swiper-slide">
+                        <div class="sliderimg">
+                        <img src="{%static 'images/c2.jpg'%}" alt="">
+                        </div>
+                        <div class="slider-content">
+                            <p class="slider-chead">Vogue-Velocity Pro X</p>
+                            <p class="slider-ccont">Step into the future of footwear with vogue</p>
+                        </div>
+                    </div>
+
+                    <div class="slidercard swiper-slide">
+                        <div class="sliderimg">
+                        <img src="{%static 'images/c3.jpg'%}" alt="">
+                        </div>
+                        <div class="slider-content">
+                            <p class="slider-chead">Vogue-Velocity Pro X</p>
+                            <p class="slider-ccont">Step into the future of footwear with vogue</p>
+                        </div>
+                    </div>
+                    <div class="slidercard swiper-slide">
+                        <div class="sliderimg">
+                        <img src="{%static 'images/c4.jpg'%}" alt="">
+                        </div>
+                        <div class="slider-content">
+                            <p class="slider-chead">Vogue-Velocity Pro X</p>
+                            <p class="slider-ccont">Step into the future of footwear with vogue</p>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="cta ctacl">
+                    <a href="/store">
+                    <button>
+                        Shop now!
+                        <img src="{%static 'images/shop.svg'%}" alt="">
+                    </button>
+                    </a>
+                </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter">
+            <div class="nshead">
+                <p>Subscribe to receive exclusive updates</p>
+            </div>
+            <p class="nsinfo">We'll let you know about new products and exciting offers!</p>
+            <div class="nsint">
+                <form action="#" class="form">
+                    {%csrf_token%}
+                    <input type="text" placeholder="Your mail">
+                    <div class="cta">
+                    <button>
+                        Submit
+                        <img src="{% static 'images/send.svg'%}" alt="#">
+                    </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <section class="footer">
+            <div class="footerleft">
+                <div class="footer-logo-wrap">
+                    <img src="{%static 'images/logo.png'%}" alt="logo">
+                    <p class="logohead">VogueWalk</p>
+                </div>
+                <div class="footcont">
+                    <p class="about-heading2">Affordable Luxury,<br> Uncompromised Quality.</p>
+                </div>
+                <div class="cta green">
+                    <a href="/store">
+                    <button href="/">
+                        Explore Collection
+                        <img src="{%static 'images/shop.svg'%}" alt="">
+                    </button>
+                    </a>
+                </div>
+            </div>
+            <div class="footercenter">
+                <img src="{%static 'images/vwfooter.svg'%}" alt="#">
+            </div>
+            <div class="footerright">
+                <p class="ct-head">Contact</p>
+                <div class="social-links">
+                    <p class="schead">Follow us on social media</p>
+                    <div class="socicons">
+                        <img src="{%static 'images/twitter.svg'%}" alt="#">
+                        <img src="{%static 'images/facebook.svg'%}" alt="#">
+                        <img src="{%static 'images/pinterest.svg'%}" alt="#">
+                    </div>
+                </div>
+                <div class="ct-info">
+                    <p class="address">-05, West Brooke Street, Ooty-638001</p>
+                    <p class="phone">8838492241</p>
+                    <p class="email">Voguewalkbusiness@vw.com</p>
+
+                </div>
+            </div>
+        </section>
+    </section>
+    <script src="{%static 'js/swiper-bundle.js'%}"></script>
+    <script src="{%static 'js/home.js'%}"></script>
+    <script>
+        let lg = document.querySelector('.logouttxt')
+        let text = "{{request.user}}";
+        if (text=="AnonymousUser")
+        {
+            lg.style.display = "None"
+        }
+    </script>
+</body>
+</html>
+
+
+

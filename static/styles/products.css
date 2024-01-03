@@ -1,0 +1,149 @@
+.parent
+{
+    padding: 3em 6em 2.5em 6em;
+}
+.return
+{
+    display: flex;
+    align-items: center;
+    margin-top: 115px;
+    gap: .7em;
+}
+.return>a
+{
+    font-family: "poppins-medium";
+    font-size: 1.2em;
+    color: black;
+    text-decoration: none;
+    transition: 1s;
+}
+.return>a:hover
+{
+    text-decoration: underline;
+}
+.return>img
+{
+    max-width: 13px;
+    transform: rotate(180deg);
+}
+main
+{
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4em;
+    margin-top: 2em;
+}
+.productdetails
+{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+.productjb, .productdetails
+{
+    min-width: 50%;
+}
+.pdwrap
+{
+    min-width: 100%;
+}
+.pdwrap>img
+{
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    min-width: 100%;
+    border-radius: 5px;
+    max-height: 400px;
+    object-fit: cover;
+}
+.pdimages
+{
+    margin-top: 2em;
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+}
+.pdimages>img
+{
+    max-width: 100px;
+    border-radius: 5px;
+}
+.product-head>p
+{
+    font-size: 3.6em;
+    font-family: "montserrat-bold";
+}
+.price
+{
+    margin: 2em 0 2em 0;
+}
+.price>p
+{
+    font-family: "montserrat-semibold";
+    font-size: 2.8em;
+    text-decoration: underline;
+}
+.buybtn, .cartbtn
+{
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-family: "montserrat-semibold";
+    font-size: 2.4em;
+    box-shadow: 8px 8px 24px rgba(0, 0, 0, 0.25);
+    color: white;
+    gap: .5em;
+    cursor: pointer;
+    background: #167B80;
+}
+.buybtn>img
+{
+    filter: invert(1);
+}
+.cartbtn
+{
+    background-color: #fffdfd;
+    font-family: "montserrat-regular";
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    color: black;
+    font-size: 2em;
+}
+.productbtnwrap
+{
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+    margin-top: 2em;
+}
+.product-header
+{
+    font-family: "montserrat-medium";
+    font-size: 2.6em;
+    text-decoration: underline;
+}
+.product-description
+{
+    font-family: "montserrat-regular";
+    font-size: 1.6em;
+    margin-top: .5em;
+}
+
+@media screen and (max-width: 900px) {
+    .parent
+    {
+        padding: 3em 2em 2.5em 2em;
+    }
+    main
+    {
+        flex-wrap: wrap;
+    }
+    .productjb, .productdetails
+    {
+        max-width: 100%;
+    }
+}

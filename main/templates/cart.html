@@ -1,0 +1,104 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogue Walk || Products</title>
+    <link rel="shortcut icon" href="{%static 'images/favicon.png'%}" type="image/x-icon">   
+    <link rel="stylesheet" href="{%static 'styles/home.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/store.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/fonts.css'%}">
+</head>
+<body>
+    <nav class="nav active">
+        <a href="/" style="text-decoration: none;">
+        <div class="logo-wrap">
+            <img src="{%static 'images/logo.png'%}" alt="logo">
+            <p class="logohead active">VogueWalk</p>
+        </div>
+        </a>
+        <div class="navright">
+            <div class="search active" style="display: flex; align-items: center;">
+                <a href="/store">Shop</a>
+                <img src="{%static 'images/shop.svg'%}" alt="search" style="filter: invert(1);">
+            </div>
+            <div class="ham active">
+                <span class="span1"></span>
+                <span class="span2"></span>
+                <span class="span3"></span>
+            </div>
+        </div>
+        <div class="mobilenav">
+            <ul class="mobilenavul">
+                <li class="mobilenavhead">Menu</li>
+                <li><a href="/">Home</a></li>
+                <span></span>
+                <li><a href="/store">Store</a></li>
+                <span></span>
+                <li><a href="/Cart">Vogue Cart</a></li>
+                <span></span>
+                <li><a href="/contact">Contact</a></li>
+                <span></span>
+                {%if not request.user.is_authenticated%}
+                <li><a href="/Signup">Signup/Signin</a></li>
+                <span></span>
+                {%endif%}
+                <li><a href="/logout" class="logouttxt">Logged in as {{request.user}} - logout</a></li>
+                <span></span>
+            </ul>
+        </div>
+    </nav>
+    <section class="parent">
+        <div class="products-wrap">
+            <div class="product-header">
+               <p>Your Cart</p>
+            </div>
+        
+        
+        <div class="products">
+            {%if not cart.exists %}
+            <p style="font-family: 'montserrat-regular'; font-size: 2.6em;">
+                Uh oh! Looks like there is no items in cart.
+            </p>
+            {%endif%}
+            {%for product in cart%}
+            <a href="{%url 'product' product.id%}">
+            <div class="card">
+                <div class="cardimg">
+                    <img src="{{MEDIA_URL}}\{{product.image}}" alt="#">
+                </div>
+                <div class="cardcontent">
+                <div class="shoedetails">
+                    <p class="shoename">{{product.title}}</p>
+                    <p class="shoeprice">₹{{product.price}}</p>
+                </div>
+                <div class="shoeinfo">
+                    <p class="shoedescription">{{product.description}}</p>
+                </div>
+                <div class="ctabtn" style="opacity: 0.65;">
+                    <a href="{%url 'delete' product.id%}">
+                        <img src="{%static 'images/trash.svg'%}" alt="arrow">
+                        Remove Item
+                    </a>
+                </div>
+                </div>
+            </div>
+            </a>
+            {%endfor%}
+        </div>
+        </div>
+
+
+    </section>
+    <script src="{%static 'js/nav.js'%}"></script>
+    <script>
+        let lg = document.querySelector('.logouttxt')
+        let text = "{{request.user}}";
+        if (text=="AnonymousUser")
+        {
+            lg.style.display = "None"
+        }
+    </script>
+</body>
+</html>

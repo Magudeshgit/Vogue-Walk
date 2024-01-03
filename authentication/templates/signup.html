@@ -1,0 +1,70 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vogue Walk || Signup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{%static 'styles/home.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/fonts.css'%}">
+    <link rel="stylesheet" href="{%static 'styles/signup.css'%}">
+</head>
+<body>
+    <section class="parent">
+        <div class="leftcont">
+            <a href="/" style="text-decoration: none;">
+            <div class="logo-wrap">
+                <img src="{%static 'images/logo.png'%}" alt="logo">
+                <p class="logohead active">VogueWalk</p>
+            </div>
+            </a>
+            <div class="return">
+                <a href="/store">
+                    <img src="{%static 'images/arr.svg'%}" alt="#">
+                    Back to home
+                </a>
+            </div>
+            <div class="formelement">
+                <div class="formhead">
+                    <p>Signup</p>
+                </div>
+                <div class="formdiv">
+                    <form method="POST">
+                        {%csrf_token%}
+                        <input type="text" placeholder="Username" name="username">
+                        <input type="email" placeholder="Email" name="email">
+                        <input type="password" placeholder="Password" name="password1">
+                        <input type="password" placeholder="Re-Enter Password" name="password2">
+                        <a href="/Signin" class="ctext">Already have an account?</a>
+                        <p class="errtxt ctext" style="color: red;"></p>
+                        <button>Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="rightcontt">
+            <div class="rightimg">
+                <img src="{%static 'images/welcome.svg'%}" alt="#">
+            </div>
+            <div class="text">
+                <p>We Believe in Uncompromised Quality.</p>
+                <img src="{%static 'images/heart.svg'%}" alt="#" class="timg1">
+                <img src="{%static 'images/heart.svg'%}" alt="#" class="timg2">
+                <img src="{%static 'images/heart.svg'%}" alt="#" class="timg3">
+            </div>
+        </div>
+    </section>
+    <script>
+        let errors = document.querySelectorAll('.erroror')
+        let errtext = document.querySelector('.errtxt')
+        for (let x = 0; x < errors.length; x++) {
+            console.log(errors[x].textContent);
+            errtext.innerHTML += errors[x].textContent
+            
+        }
+    </script>
+</body>
+</html>
